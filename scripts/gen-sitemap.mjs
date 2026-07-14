@@ -13,6 +13,9 @@ const subtypeSlugs = [...subtypesData.matchAll(/slug: "([a-z0-9-]+)"/g)].map(m =
 const blogData = fs.readFileSync(resolve(root, 'src', 'data', 'blog.ts'), 'utf8')
 const blogSlugs = [...new Set([...blogData.matchAll(/slug: "([a-z0-9-]+)"/g)].map(m => m[1]))]
 
+const termsData = fs.readFileSync(resolve(root, 'src', 'data', 'brainrotTerms.ts'), 'utf8')
+const termSlugs = [...new Set([...termsData.matchAll(/slug: "([a-z0-9-]+)"/g)].map(m => m[1]))]
+
 let xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
 const add = (p, pri) => { xml += `  <url><loc>${base}${p}</loc><lastmod>${today}</lastmod><priority>${pri}</priority></url>\n` }
 
@@ -30,9 +33,10 @@ add('/disclaimer', 0.5)
 
 for (const slug of subtypeSlugs) add(`/subtypes/${slug}`, 0.8)
 for (const slug of blogSlugs) add(`/blog/${slug}`, 0.7)
+for (const slug of termSlugs) add(`/terms/${slug}`, 0.7)
 
 xml += '</urlset>\n'
 
 fs.writeFileSync(resolve(root, 'public', 'sitemap.xml'), xml, 'utf8')
 try { fs.writeFileSync(resolve(root, 'dist', 'sitemap.xml'), xml, 'utf8') } catch {}
-console.log(`Sitemap: ${11 + subtypeSlugs.length + blogSlugs.length} URLs (${subtypeSlugs.length} subtypes, ${blogSlugs.length} blog)`)
+console.log(`Sitemap: ${11 + subtypeSlugs.length + blogSlugs.length + termSlugs.length} URLs (${subtypeSlugs.length} subtypes, ${blogSlugs.length} blog, ${termSlugs.length} terms)`)

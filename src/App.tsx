@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import SubtypesPage from './pages/SubtypesPage'
 import SubtypeDetailPage from './pages/SubtypeDetailPage'
 import TermsPage from './pages/TermsPage'
+import TermDetailPage from './pages/TermDetailPage'
 import StagesPage from './pages/StagesPage'
 import LeaderboardPage from './pages/LeaderboardPage'
 import BlogIndex from './pages/BlogIndex'
@@ -125,6 +126,7 @@ export default function App() {
         <Route path="/subtypes" element={<SubtypesPage />} />
         <Route path="/subtypes/:slug" element={<SubtypeDetailPage />} />
         <Route path="/terms" element={<TermsPage />} />
+        <Route path="/terms/:slug" element={<TermDetailPage />} />
         <Route path="/stages" element={<StagesPage />} />
         <Route path="/leaderboard" element={<LeaderboardPage />} />
         <Route path="/blog" element={<BlogIndex />} />
