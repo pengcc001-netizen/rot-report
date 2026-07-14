@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Disallow: /r/
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://rot.csskey.com/sitemap.xml

@@ -1,0 +1,357 @@
+/* ============================================================
+   ROT REPORT — Digital Quarantine Terminal
+   Dark green CRT, amber warnings, hazard stripes.
+   Your brain rot is assessed. This is entertainment.
+   NOT a real medical diagnosis. Satire only.
+   ============================================================ */
+
+:root {
+  /* ---- Base surfaces (dark green-black) ---- */
+  --bg: #0A1410;
+  --bg-terminal: #0D1B14;
+  --bg-card: rgba(0, 255, 136, 0.03);
+  --bg-card-hover: rgba(0, 255, 136, 0.06);
+  --bg-overlay: rgba(10, 20, 16, 0.92);
+
+  /* ---- Terminal green ---- */
+  --green: #00FF88;
+  --green-dim: #00CC6A;
+  --green-dark: #008844;
+  --green-faint: rgba(0, 255, 136, 0.15);
+
+  /* ---- Amber warning ---- */
+  --amber: #FFB300;
+  --amber-dim: #CC8F00;
+  --amber-faint: rgba(255, 179, 0, 0.10);
+
+  /* ---- Danger red ---- */
+  --red: #FF5252;
+  --red-dim: #CC4242;
+  --red-faint: rgba(255, 82, 82, 0.10);
+
+  /* ---- Text ---- */
+  --text: #B8F5D8;
+  --text-soft: #6A9A7E;
+  --text-faint: #3A5A4A;
+
+  /* ---- Borders ---- */
+  --border: rgba(0, 255, 136, 0.12);
+  --border-hover: rgba(0, 255, 136, 0.25);
+  --border-amber: rgba(255, 179, 0, 0.20);
+
+  /* ---- Fonts ---- */
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --font-body: 'JetBrains Mono', 'Courier New', monospace;
+
+  /* ---- Radius ---- */
+  --radius: 2px;
+
+  /* ---- Shadows / Glow ---- */
+  --shadow-glow: 0 0 20px rgba(0, 255, 136, 0.08);
+  --shadow-amber: 0 0 16px rgba(255, 179, 0, 0.10);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* CRT scan line effect */
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 136, 0.015) 2px,
+      rgba(0, 255, 136, 0.015) 4px
+    ),
+    radial-gradient(ellipse 100% 60% at 50% 0%, rgba(0, 255, 136, 0.03), transparent);
+  background-attachment: fixed;
+}
+
+a {
+  color: var(--green);
+  text-decoration: none;
+  transition: color 0.15s ease, text-shadow 0.15s ease;
+}
+a:hover {
+  color: var(--green);
+  text-shadow: 0 0 6px rgba(0, 255, 136, 0.4);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-mono);
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+::selection {
+  background: var(--green);
+  color: var(--bg);
+}
+
+/* ---------- Utility classes ---------- */
+
+.mono { font-family: var(--font-mono); }
+.nums { font-variant-numeric: tabular-nums; }
+
+/* CRT green text */
+.crt-green { color: var(--green); text-shadow: 0 0 4px rgba(0, 255, 136, 0.3); }
+.crt-amber { color: var(--amber); text-shadow: 0 0 4px rgba(255, 179, 0, 0.3); }
+.crt-red { color: var(--red); text-shadow: 0 0 4px rgba(255, 82, 82, 0.3); }
+
+/* Terminal label */
+.terminal-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+/* Warning label */
+.warning-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+/* ---------- Terminal card ---------- */
+
+.terminal-card {
+  background: var(--bg-terminal);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.terminal-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-glow), var(--shadow-card);
+}
+
+/* Warning card (amber border) */
+.warning-card {
+  background: var(--bg-terminal);
+  border: 1px solid var(--border-amber);
+  box-shadow: var(--shadow-amber);
+}
+
+/* ---------- Hazard stripe (warning border) ---------- */
+
+.hazard-border {
+  border: 2px solid;
+  border-image: repeating-linear-gradient(
+    45deg,
+    var(--amber),
+    var(--amber) 10px,
+    var(--bg) 10px,
+    var(--bg) 20px
+  ) 1;
+}
+
+/* ---------- Chip / tag ---------- */
+
+.chip {
+  display: inline-block;
+  padding: 3px 10px;
+  border: 1px solid var(--border);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: var(--bg-card);
+  color: var(--text-soft);
+  font-family: var(--font-mono);
+  line-height: 1.5;
+}
+
+.chip-green { border-color: var(--green-dim); color: var(--green); background: var(--green-faint); }
+.chip-amber { border-color: var(--amber-dim); color: var(--amber); background: var(--amber-faint); }
+.chip-red { border-color: var(--red-dim); color: var(--red); background: var(--red-faint); }
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.btn-terminal {
+  background: var(--green-dark);
+  color: var(--bg);
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.2);
+}
+.btn-terminal:hover {
+  background: var(--green);
+  color: var(--bg);
+  box-shadow: 0 0 24px rgba(0, 255, 136, 0.4);
+  text-decoration: none;
+}
+.btn-outline {
+  background: transparent;
+  color: var(--green);
+  border: 1px solid var(--green-dim);
+}
+.btn-outline:hover {
+  border-color: var(--green);
+  background: var(--green-faint);
+  text-decoration: none;
+}
+.btn-ghost {
+  background: var(--bg-card);
+  color: var(--text-soft);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover {
+  border-color: var(--border-hover);
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* ---------- Nav link ---------- */
+
+.nav-link {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  text-decoration: none;
+  padding: 4px 0;
+  transition: color 0.15s ease;
+}
+.nav-link:hover {
+  color: var(--green);
+  text-decoration: none;
+}
+.nav-link::after {
+  content: '_';
+  color: var(--green);
+  margin-left: 2px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.nav-link:hover::after { opacity: 1; }
+
+/* ---------- Animations ---------- */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+@keyframes pulseGreen {
+  0%, 100% { box-shadow: 0 0 12px rgba(0, 255, 136, 0.15); }
+  50% { box-shadow: 0 0 24px rgba(0, 255, 136, 0.3); }
+}
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.fade-in { animation: fadeIn 0.4s ease; }
+.blink { animation: blink 1s step-end infinite; }
+.pulse-green { animation: pulseGreen 2s ease-in-out infinite; }
+
+/* ---------- Article prose ---------- */
+
+.prose p { margin-bottom: 1.1em; }
+.prose h2 {
+  font-size: 1.375rem;
+  margin: 1.8em 0 0.6em;
+  font-weight: 700;
+  color: var(--green);
+}
+.prose h3 {
+  font-size: 1.0625rem;
+  margin: 1.6em 0 0.5em;
+  font-weight: 600;
+  color: var(--text);
+}
+.prose a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  color: var(--green);
+}
+.prose strong {
+  color: var(--amber);
+  font-weight: 700;
+}
+
+/* Drop cap */
+.dropcap::first-letter {
+  font-family: var(--font-mono);
+  font-size: 2.6em;
+  font-weight: 700;
+  float: left;
+  line-height: 0.82;
+  margin: 0.05em 0.1em 0 0;
+  color: var(--green);
+}
+
+/* Warning box */
+.warning-box {
+  background: var(--amber-faint);
+  border: 1px solid var(--border-amber);
+  border-left: 3px solid var(--amber);
+  padding: 16px 20px;
+  margin: 24px 0;
+  font-size: 13px;
+  color: var(--text);
+  font-family: var(--font-mono);
+}
+
+/* ---------- Scrollbar ---------- */
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb {
+  background: var(--green-dark);
+  border-radius: 0;
+  border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--green-dim); }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+  body { font-size: 14px; }
+}
