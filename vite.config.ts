@@ -6,7 +6,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: (id) => {
+        manualChunks(id: string) {
           if (id.includes('node_modules') && (id.includes('react') || id.includes('react-dom') || id.includes('react-router') || id.includes('react-helmet'))) {
             return 'react-vendor'
           }
