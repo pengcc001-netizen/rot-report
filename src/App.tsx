@@ -99,6 +99,7 @@ function Layout({ children }: { children: React.ReactNode }) {
               <Link to="/about" style={{ color: 'var(--text-soft)', textDecoration: 'none', fontSize: 12, fontFamily: 'var(--font-mono)' }}>About</Link>
               <Link to="/disclaimer" style={{ color: 'var(--text-soft)', textDecoration: 'none', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Disclaimer</Link>
               <Link to="/privacy" style={{ color: 'var(--text-soft)', textDecoration: 'none', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Privacy</Link>
+              <Link to="/legal-terms" style={{ color: 'var(--text-soft)', textDecoration: 'none', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Terms of Service</Link>
               <Link to="/contact" style={{ color: 'var(--text-soft)', textDecoration: 'none', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Contact</Link>
             </div>
           </div>
@@ -133,7 +134,7 @@ export default function App() {
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/about" element={<StaticPage page="about" />} />
         <Route path="/privacy" element={<StaticPage page="privacy" />} />
-        <Route path="/terms" element={<StaticPage page="terms" />} />
+        <Route path="/legal-terms" element={<StaticPage page="terms" />} />
         <Route path="/contact" element={<StaticPage page="contact" />} />
         <Route path="/disclaimer" element={<StaticPage page="disclaimer" />} />
         <Route path="/r/:code" element={<ResultPage />} />

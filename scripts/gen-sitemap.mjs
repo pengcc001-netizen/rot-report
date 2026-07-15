@@ -27,7 +27,7 @@ add('/leaderboard', 0.7)
 add('/blog', 0.8)
 add('/about', 0.5)
 add('/privacy', 0.3)
-add('/terms', 0.3)
+add('/legal-terms', 0.3)
 add('/contact', 0.5)
 add('/disclaimer', 0.5)
 

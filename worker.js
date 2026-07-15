@@ -1,11 +1,10 @@
 // Valid route patterns for rot.csskey.com
-const STATIC_PAGES = new Set(['/', '/subtypes', '/terms', '/stages', '/leaderboard', '/blog', '/about', '/privacy', '/terms', '/contact', '/disclaimer']);
+const STATIC_PAGES = new Set(['/', '/subtypes', '/terms', '/stages', '/leaderboard', '/blog', '/about', '/privacy', '/legal-terms', '/contact', '/disclaimer']);
 
 function isValidRoute(pathname) {
   if (STATIC_PAGES.has(pathname)) return true;
   if (/^\/subtypes\/[a-z0-9-]+$/.test(pathname)) return true;
   if (/^\/terms\/[a-z0-9-]+$/.test(pathname)) return true;
-  if (/^\/stages\/[1-4]$/.test(pathname)) return true;
   if (/^\/blog\/[a-z0-9-]+$/.test(pathname)) return true;
   if (/^\/r\/[A-Za-z0-9_-]+$/.test(pathname)) return true;
   return false;

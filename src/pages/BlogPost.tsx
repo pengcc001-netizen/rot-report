@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async'
-import { useParams, Link, Navigate } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { blogPosts } from '../data/blog'
 import ShareButtons from '../components/ShareButtons'
 import Ad from '../components/Ad'
@@ -7,7 +7,7 @@ import Ad from '../components/Ad'
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>()
   const post = blogPosts.find(p => p.slug === slug)
-  if (!post) return <Navigate to="/blog" replace />
+  if (!post) return <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 16 }}><Helmet><meta name="robots" content="noindex,nofollow" /></Helmet><h1 style={{ fontSize: 48, fontWeight: 800 }}>404</h1><p>Page not found</p><Link to="/" style={{ textDecoration: 'none', fontWeight: 600 }}>Go Home</Link></div>
 
   const url = `https://rot.csskey.com/blog/${post.slug}`
   const related = blogPosts.filter(p => p.slug !== post.slug).slice(0, 3)
