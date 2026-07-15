@@ -73,6 +73,26 @@ export default function TermDetailPage() {
         </p>
       </article>
 
+      {/* Analysis */}
+      {term.analysis && (
+        <article className="prose" style={{ marginBottom: 24 }}>
+          <div className="terminal-label" style={{ marginBottom: 12 }}>{"> CULTURAL ANALYSIS"}</div>
+          {term.analysis.split("\n\n").map((para, i) => (
+            <p key={i} className={i === 0 ? "dropcap" : ""} style={{
+              fontSize: 14,
+              lineHeight: 1.8,
+              color: "var(--text)",
+              margin: "12px 0",
+              fontFamily: "var(--font-body)",
+              textAlign: "justify",
+              hyphens: "auto",
+            }}>
+              {para}
+            </p>
+          ))}
+        </article>
+      )}
+
       {/* Example */}
       <div className="terminal-card" style={{ padding: "20px 24px", marginBottom: 24 }}>
         <div className="terminal-label" style={{ marginBottom: 10 }}>{"> USAGE EXAMPLE"}</div>
