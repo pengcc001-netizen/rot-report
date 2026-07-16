@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { brainrotTerms } from '../data/brainrotTerms"
+import { brainrotTerms } from '../data/brainrotTerms'
 import Ad from "../components/Ad"
 
 const TIERS = [0, 1, 2, 3, 4]

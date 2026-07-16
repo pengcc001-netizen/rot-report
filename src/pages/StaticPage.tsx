@@ -126,6 +126,7 @@ export default function StaticPage({ page }: { page: string }) {
 
   const canonicalPath = page === 'terms' ? 'legal-terms' : page
   const canonicalUrl = `https://rot.csskey.com/${canonicalPath}`
+  let isFirst = true
 
   return (
     <div className="fade-in" style={{ maxWidth: 680, margin: '0 auto' }}>
