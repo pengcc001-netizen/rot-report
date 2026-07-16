@@ -9,7 +9,6 @@ export default function SubtypesPage() {
       <Helmet>
         <title>All {rotSubtypes.length} Brain Rot Subtypes - Rot Report</title>
         <meta name="description" content={`Browse all ${rotSubtypes.length} satirical brain rot subtypes. From Skibidi Syndrome to Cooked Terminal Stage. Fake ICD codes, joke prescriptions. Entertainment only.`} />
-        <link rel="canonical" href="https://rot.csskey.com/subtypes" />
         <meta property="og:title" content={`All ${rotSubtypes.length} Brain Rot Subtypes`} />
         <meta property="og:description" content={`Browse all ${rotSubtypes.length} satirical brain rot subtypes with fake ICD codes and joke prescriptions.`} />
         <meta property="og:url" content="https://rot.csskey.com/subtypes" />

@@ -16,7 +16,6 @@ export default function SubtypeDetailPage() {
       <Helmet>
         <title>{subtype.name} ({subtype.fakeICD}) - Rot Report</title>
         <meta name="description" content={`${subtype.name}: ${subtype.tagline} Fake ICD: ${subtype.fakeICD}. Satire only — NOT a real medical diagnosis.`} />
-        <link rel="canonical" href={url} />
         <meta property="og:title" content={`${subtype.name} (${subtype.fakeICD})`} />
         <meta property="og:description" content={subtype.tagline} />
         <meta property="og:url" content={url} />

@@ -22,7 +22,6 @@ export default function TermsPage() {
       <Helmet>
         <title>Brainrot Dictionary - {brainrotTerms.length}+ Terms Explained | Rot Report</title>
         <meta name="description" content={`A searchable dictionary of ${brainrotTerms.length}+ brainrot terms. From skibidi to Tralalero Tralala. Every term explained with definitions, cultural analysis, and examples.`} />
-        <link rel="canonical" href="https://rot.csskey.com/terms" />
         <meta property="og:title" content={`Brainrot Dictionary - ${brainrotTerms.length}+ Terms Explained`} />
         <meta property="og:description" content={`A searchable dictionary of ${brainrotTerms.length}+ brainrot terms across 4 tiers.`} />
         <meta property="og:url" content="https://rot.csskey.com/terms" />

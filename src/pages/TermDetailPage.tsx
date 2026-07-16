@@ -36,7 +36,6 @@ export default function TermDetailPage() {
           name="description"
           content={`${term.term}: ${term.definition} Tier ${term.tier} (${TIER_LABELS[term.tier]}). Example: ${term.example}. Satire only.`}
         />
-        <link rel="canonical" href={url} />
         <meta property="og:title" content={`${term.term} — Brainrot Term Definition`} />
         <meta property="og:description" content={term.definition} />
         <meta property="og:url" content={url} />

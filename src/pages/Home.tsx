@@ -38,7 +38,6 @@ export default function Home() {
         <Helmet>
           <title>Rot Report - Brain Rot Assessment [Satire] | 2026</title>
           <meta name="description" content="Take the Brain Rot Assessment. 10 satirical subtypes, 80+ terms explained. Discover your Rot Score. Entertainment only — NOT a real medical diagnosis." />
-          <link rel="canonical" href="https://rot.csskey.com/" />
           <meta property="og:title" content="Rot Report - Brain Rot Assessment" />
           <meta property="og:description" content="Take the satirical Brain Rot Assessment. 10 subtypes, 80+ terms explained. Discover your Rot Score." />
           <meta property="og:url" content="https://rot.csskey.com/" />
