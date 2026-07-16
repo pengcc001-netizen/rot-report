@@ -113,13 +113,15 @@ export default function StaticPage({ page }: { page: string }) {
   const info = PAGES[page]
   if (!info) return null
 
-  let isFirst = true
+  const canonicalPath = page === 'terms' ? 'legal-terms' : page
+  const canonicalUrl = `https://rot.csskey.com/${canonicalPath}`
 
   return (
     <div className="fade-in" style={{ maxWidth: 680, margin: '0 auto' }}>
       <Helmet>
         <title>{info.title} - Rot Report</title>
         <meta name="description" content={`Rot Report ${info.title.toLowerCase()} page.`} />
+        <link rel="canonical" href={canonicalUrl} />
       </Helmet>
 
       <article>

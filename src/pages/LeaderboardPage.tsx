@@ -11,6 +11,7 @@ export default function LeaderboardPage() {
       <Helmet>
         <title>Rot Score Leaderboard - Ranked by Severity | Rot Report</title>
         <meta name="description" content="All brain rot subtypes ranked by Rot Score. See which subtypes have the highest and lowest cognitive decay scores." />
+        <link rel="canonical" href="https://rot.csskey.com/leaderboard" />
       </Helmet>
 
       <div className="terminal-label" style={{ marginBottom: 8 }}>{'> ROT SCORE RANKING'}</div>

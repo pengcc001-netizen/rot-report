@@ -37,6 +37,19 @@ export default function TermDetailPage() {
           content={`${term.term}: ${term.definition} Tier ${term.tier} (${TIER_LABELS[term.tier]}). Example: ${term.example}. Satire only.`}
         />
         <link rel="canonical" href={url} />
+        <meta property="og:title" content={`${term.term} — Brainrot Term Definition`} />
+        <meta property="og:description" content={term.definition} />
+        <meta property="og:url" content={url} />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Terms", "item": "https://rot.csskey.com/terms" },
+            { "@type": "ListItem", "position": 2, "name": term.term, "item": url },
+          ]
+        })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Article",
@@ -67,7 +80,7 @@ export default function TermDetailPage() {
 
       {/* Definition */}
       <article className="prose" style={{ marginBottom: 24 }}>
-        <div className="terminal-label" style={{ marginBottom: 12 }}>{"> TERM DEFINITION"}</div>
+        <h2 className="terminal-label" style={{ marginBottom: 12 }}>{"> TERM DEFINITION"}</h2>
         <p className="dropcap mono" style={{ fontSize: 14, lineHeight: 1.8, color: "var(--text)", textAlign: "justify", hyphens: "auto" }}>
           {term.definition}
         </p>
@@ -76,7 +89,7 @@ export default function TermDetailPage() {
       {/* Analysis */}
       {term.analysis && (
         <article className="prose" style={{ marginBottom: 24 }}>
-          <div className="terminal-label" style={{ marginBottom: 12 }}>{"> CULTURAL ANALYSIS"}</div>
+          <h2 className="terminal-label" style={{ marginBottom: 12 }}>{"> CULTURAL ANALYSIS"}</h2>
           {term.analysis.split("\n\n").map((para, i) => (
             <p key={i} className={i === 0 ? "dropcap" : ""} style={{
               fontSize: 14,
@@ -95,7 +108,7 @@ export default function TermDetailPage() {
 
       {/* Example */}
       <div className="terminal-card" style={{ padding: "20px 24px", marginBottom: 24 }}>
-        <div className="terminal-label" style={{ marginBottom: 10 }}>{"> USAGE EXAMPLE"}</div>
+        <h2 className="terminal-label" style={{ marginBottom: 10 }}>{"> USAGE EXAMPLE"}</h2>
         <p className="mono" style={{ fontSize: 13, color: "var(--text)", padding: "4px 0", paddingLeft: 16, fontStyle: "italic" }}>
           <span className="crt-amber">{"> "}</span>{term.example}
         </p>
@@ -114,7 +127,7 @@ export default function TermDetailPage() {
       {/* Related terms */}
       {related.length > 0 && (
         <div className="terminal-card" style={{ padding: "20px 24px", marginBottom: 24 }}>
-          <div className="terminal-label" style={{ marginBottom: 12 }}>{"> RELATED TERMS"}</div>
+          <h2 className="terminal-label" style={{ marginBottom: 12 }}>{"> RELATED TERMS"}</h2>
           <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
             {related.map(r => (
               <Link

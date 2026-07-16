@@ -8,6 +8,7 @@ export default function StagesPage() {
       <Helmet>
         <title>The 4 Stages of Brain Rot | Rot Report</title>
         <meta name="description" content="From Slang Creep to Content Void. The 4 satirical stages of brain rot progression and how to reverse each one." />
+        <link rel="canonical" href="https://rot.csskey.com/stages" />
       </Helmet>
 
       <div className="terminal-label" style={{ marginBottom: 8 }}>{'> PROGRESSION ANALYSIS'}</div>

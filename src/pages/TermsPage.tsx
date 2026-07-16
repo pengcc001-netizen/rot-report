@@ -1,7 +1,8 @@
 import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { brainrotTerms } from '../data/brainrotTerms'
-import Ad from '../components/Ad'
+import { Link } from 'react-router-dom'
+import { brainrotTerms } from '../data/brainrotTerms"
+import Ad from "../components/Ad"
 
 const TIERS = [0, 1, 2, 3, 4]
 
@@ -20,7 +21,24 @@ export default function TermsPage() {
     <div className="fade-in">
       <Helmet>
         <title>Brainrot Dictionary - {brainrotTerms.length}+ Terms Explained | Rot Report</title>
-        <meta name="description" content={`A searchable dictionary of ${brainrotTerms.length}+ brainrot terms. From skibidi to Tralalero Tralala. Every term explained with examples.`} />
+        <meta name="description" content={`A searchable dictionary of ${brainrotTerms.length}+ brainrot terms. From skibidi to Tralalero Tralala. Every term explained with definitions, cultural analysis, and examples.`} />
+        <link rel="canonical" href="https://rot.csskey.com/terms" />
+        <meta property="og:title" content={`Brainrot Dictionary - ${brainrotTerms.length}+ Terms Explained`} />
+        <meta property="og:description" content={`A searchable dictionary of ${brainrotTerms.length}+ brainrot terms across 4 tiers.`} />
+        <meta property="og:url" content="https://rot.csskey.com/terms" />
+        <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Brainrot Dictionary",
+          "description": `A searchable dictionary of ${brainrotTerms.length}+ brainrot terms.`,
+          "url": "https://rot.csskey.com/terms",
+          "hasPart": brainrotTerms.map(t => ({
+            "@type": "Article",
+            "headline": t.term,
+            "url": `https://rot.csskey.com/terms/${t.slug}`
+          }))
+        })}</script>
       </Helmet>
 
       <div className="terminal-label" style={{ marginBottom: 8 }}>{'> BRAINROT DICTIONARY'}</div>
@@ -54,12 +72,14 @@ export default function TermsPage() {
       <div className="terminal-card" style={{ padding: '4px 20px', marginBottom: 32 }}>
         {filtered.map((t, i) => (
           <div key={i} style={{ padding: '12px 0', borderBottom: i < filtered.length - 1 ? '1px dashed var(--border)' : 'none' }}>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 4 }}>
-              <span className={`chip chip-${t.tier === 4 ? 'amber' : t.tier === 3 ? 'red' : t.tier === 2 ? 'green' : 'green'}`} style={{ fontSize: 9 }}>T{t.tier}</span>
-              <span className="mono crt-green" style={{ fontSize: 14, fontWeight: 700 }}>{t.term}</span>
-            </div>
-            <p className="mono" style={{ fontSize: 12, color: 'var(--text-soft)', lineHeight: 1.6, marginBottom: 4 }}>{t.definition}</p>
-            <p className="mono" style={{ fontSize: 11, color: 'var(--text-faint)', fontStyle: 'italic' }}>e.g. {t.example}</p>
+            <Link to={`/terms/${t.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 4 }}>
+                <span className={`chip chip-${t.tier === 4 ? 'amber' : t.tier === 3 ? 'red' : t.tier === 2 ? 'green' : 'green'}`} style={{ fontSize: 9 }}>T{t.tier}</span>
+                <span className="mono crt-green" style={{ fontSize: 14, fontWeight: 700 }}>{t.term}</span>
+              </div>
+              <p className="mono" style={{ fontSize: 12, color: 'var(--text-soft)', lineHeight: 1.6, marginBottom: 4 }}>{t.definition}</p>
+              <p className="mono" style={{ fontSize: 11, color: 'var(--text-faint)', fontStyle: 'italic' }}>e.g. {t.example}</p>
+            </Link>
           </div>
         ))}
         {filtered.length === 0 && (

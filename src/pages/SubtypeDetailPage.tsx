@@ -16,6 +16,20 @@ export default function SubtypeDetailPage() {
       <Helmet>
         <title>{subtype.name} ({subtype.fakeICD}) - Rot Report</title>
         <meta name="description" content={`${subtype.name}: ${subtype.tagline} Fake ICD: ${subtype.fakeICD}. Satire only — NOT a real medical diagnosis.`} />
+        <link rel="canonical" href={url} />
+        <meta property="og:title" content={`${subtype.name} (${subtype.fakeICD})`} />
+        <meta property="og:description" content={subtype.tagline} />
+        <meta property="og:url" content={url} />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Subtypes", "item": "https://rot.csskey.com/subtypes" },
+            { "@type": "ListItem", "position": 2, "name": subtype.name, "item": url },
+          ]
+        })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Article",
@@ -56,7 +70,7 @@ export default function SubtypeDetailPage() {
 
       {/* Description */}
       <article className="prose" style={{ marginBottom: 24 }}>
-        <div className="terminal-label" style={{ marginBottom: 12 }}>{'> SUBTYPE ANALYSIS'}</div>
+        <h2 className="terminal-label" style={{ marginBottom: 12 }}>{'> SUBTYPE ANALYSIS'}</h2>
         <p className="dropcap mono" style={{ fontSize: 14, lineHeight: 1.8, color: 'var(--text)', textAlign: 'justify', hyphens: 'auto' }}>
           {subtype.description}
         </p>
@@ -68,7 +82,7 @@ export default function SubtypeDetailPage() {
 
       {/* Symptoms */}
       <div className="terminal-card" style={{ padding: '20px 24px', marginBottom: 20 }}>
-        <div className="terminal-label" style={{ marginBottom: 10 }}>{'> OBSERVED INDICATORS'}</div>
+        <h2 className="terminal-label" style={{ marginBottom: 10 }}>{'> OBSERVED INDICATORS'}</h2>
         {subtype.symptoms.map((sym, i) => (
           <div key={i} className="mono" style={{ fontSize: 13, color: 'var(--text)', padding: '5px 0', paddingLeft: 16 }}>
             <span className="crt-amber">{'> '}</span>{sym}
@@ -78,7 +92,7 @@ export default function SubtypeDetailPage() {
 
       {/* Fake prescription */}
       <div className="warning-card" style={{ padding: '20px 24px', marginBottom: 24 }}>
-        <div className="terminal-label" style={{ marginBottom: 10, color: 'var(--amber)' }}>{'> PRESCRIBED RECOVERY [SATIRE]'}</div>
+        <h2 className="terminal-label" style={{ marginBottom: 10, color: 'var(--amber)' }}>{'> PRESCRIBED RECOVERY [SATIRE]'}</h2>
         {subtype.fakePrescription.map((p, i) => (
           <div key={i} className="mono" style={{ fontSize: 13, color: 'var(--text)', padding: '5px 0', paddingLeft: 16 }}>
             <span className="crt-green">{'> '}</span>{p}

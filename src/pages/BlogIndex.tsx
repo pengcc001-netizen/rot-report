@@ -9,6 +9,10 @@ export default function BlogIndex() {
       <Helmet>
         <title>Blog - Brain Rot Guides & Culture | Rot Report</title>
         <meta name="description" content={`Articles about brain rot culture, recovery strategies, and internet trends. ${blogPosts.length} guides covering brain rot, Skibidi Toilet, Italian Brainrot, and more.`} />
+        <link rel="canonical" href="https://rot.csskey.com/blog" />
+        <meta property="og:title" content="Blog - Brain Rot Guides & Culture" />
+        <meta property="og:description" content={`Articles about brain rot culture. ${blogPosts.length} guides.`} />
+        <meta property="og:url" content="https://rot.csskey.com/blog" />
       </Helmet>
 
       <div className="terminal-label" style={{ marginBottom: 8 }}>{'> ARCHIVE'}</div>
