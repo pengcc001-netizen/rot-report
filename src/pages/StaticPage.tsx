@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async'
+import { Link } from 'react-router-dom'
 
 const PAGES: Record<string, { title: string; content: string }> = {
   about: {
@@ -111,7 +112,17 @@ Questions? Email support@csskey.com`,
 
 export default function StaticPage({ page }: { page: string }) {
   const info = PAGES[page]
-  if (!info) return null
+  if (!info) return (
+      <div className="fade-in" style={{ maxWidth: 680, margin: '0 auto', padding: '60px 24px', textAlign: 'center' }}>
+        <Helmet>
+          <title>Page Not Found</title>
+          <meta name="robots" content="noindex,nofollow" />
+        </Helmet>
+        <h1 className="mono" style={{ fontSize: '1.5rem', marginBottom: 16 }}>404 - Page Not Found</h1>
+        <p style={{ marginBottom: 24, color: 'var(--text-soft)' }}>The page you are looking for does not exist.</p>
+        <Link to="/" style={{ color: 'var(--green)' }}>← Back to Home</Link>
+      </div>
+    )
 
   const canonicalPath = page === 'terms' ? 'legal-terms' : page
   const canonicalUrl = `https://rot.csskey.com/${canonicalPath}`
