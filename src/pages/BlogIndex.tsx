@@ -12,6 +12,9 @@ export default function BlogIndex() {
         <meta property="og:title" content="Blog - Brain Rot Guides & Culture" />
         <meta property="og:description" content={`Articles about brain rot culture. ${blogPosts.length} guides.`} />
         <meta property="og:url" content="https://rot.csskey.com/blog" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Blog - Brain Rot Guides & Culture', description: `Articles about brain rot culture. ${blogPosts.length} guides.`, url: 'https://rot.csskey.com/blog' }) }} />
       </Helmet>
 
       <div className="terminal-label" style={{ marginBottom: 8 }}>{'> ARCHIVE'}</div>

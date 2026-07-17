@@ -131,7 +131,13 @@ export default function StaticPage({ page }: { page: string }) {
       <Helmet>
         <title>{info.title} - Rot Report</title>
         <meta name="description" content={`Rot Report ${info.title.toLowerCase()} page.`} />
-        </Helmet>
+        <meta property="og:title" content={`${info.title} - Rot Report`} />
+        <meta property="og:description" content={`Rot Report ${info.title.toLowerCase()} page.`} />
+        <meta property="og:url" content={`https://rot.csskey.com/${page}`} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebPage', name: `${info.title} - Rot Report`, description: `Rot Report ${info.title.toLowerCase()} page.`, url: `https://rot.csskey.com/${page}` }) }} />
+      </Helmet>
 
       <article>
         {info.content.split('\n').map((line, i) => {

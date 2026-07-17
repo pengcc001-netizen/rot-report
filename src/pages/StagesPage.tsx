@@ -8,6 +8,12 @@ export default function StagesPage() {
       <Helmet>
         <title>The 4 Stages of Brain Rot | Rot Report</title>
         <meta name="description" content="From Slang Creep to Content Void. The 4 satirical stages of brain rot progression and how to reverse each one." />
+        <meta property="og:title" content="The 4 Stages of Brain Rot | Rot Report" />
+        <meta property="og:description" content="From Slang Creep to Content Void. The 4 satirical stages of brain rot progression and how to reverse each one." />
+        <meta property="og:url" content="https://rot.csskey.com/stages" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: '4 Stages of Brain Rot', description: 'The 4 satirical stages of brain rot progression.', url: 'https://rot.csskey.com/stages' }) }} />
         </Helmet>
 
       <div className="terminal-label" style={{ marginBottom: 8 }}>{'> PROGRESSION ANALYSIS'}</div>

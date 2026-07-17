@@ -12,6 +12,9 @@ export default function SubtypesPage() {
         <meta property="og:title" content={`All ${rotSubtypes.length} Brain Rot Subtypes`} />
         <meta property="og:description" content={`Browse all ${rotSubtypes.length} satirical brain rot subtypes with fake ICD codes and joke prescriptions.`} />
         <meta property="og:url" content="https://rot.csskey.com/subtypes" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: `All ${rotSubtypes.length} Brain Rot Subtypes`, description: `Browse all ${rotSubtypes.length} satirical brain rot subtypes.`, url: 'https://rot.csskey.com/subtypes' }) }} />
       </Helmet>
 
       <div className="terminal-label" style={{ marginBottom: 8 }}>{'> SUBTYPE DATABASE'}</div>

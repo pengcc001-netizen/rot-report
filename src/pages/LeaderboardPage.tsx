@@ -11,7 +11,13 @@ export default function LeaderboardPage() {
       <Helmet>
         <title>Rot Score Leaderboard - Ranked by Severity | Rot Report</title>
         <meta name="description" content="All brain rot subtypes ranked by Rot Score. See which subtypes have the highest and lowest cognitive decay scores." />
-        </Helmet>
+        <meta property="og:title" content="Rot Score Leaderboard - Ranked by Severity | Rot Report" />
+        <meta property="og:description" content="All brain rot subtypes ranked by Rot Score. See which subtypes have the highest and lowest cognitive decay scores." />
+        <meta property="og:url" content="https://rot.csskey.com/leaderboard" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Rot Score Leaderboard', description: 'All brain rot subtypes ranked by Rot Score.', url: 'https://rot.csskey.com/leaderboard' }) }} />
+      </Helmet>
 
       <div className="terminal-label" style={{ marginBottom: 8 }}>{'> ROT SCORE RANKING'}</div>
       <h1 className="mono" style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 700, marginBottom: 12, color: 'var(--green)' }}>
