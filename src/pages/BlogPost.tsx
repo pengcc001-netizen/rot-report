@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+﻿import { Helmet } from 'react-helmet-async'
 import { useParams, Link } from 'react-router-dom'
 import { blogPosts } from '../data/blog'
 import ShareButtons from '../components/ShareButtons'
@@ -7,7 +7,7 @@ import Ad from '../components/Ad'
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>()
   const post = blogPosts.find(p => p.slug === slug)
-  if (!post) return <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 16 }}><Helmet><meta name="robots" content="noindex,nofollow" /></Helmet><h1 style={{ fontSize: 48, fontWeight: 800 }}>404</h1><p>Page not found</p><Link to="/" style={{ textDecoration: 'none', fontWeight: 600 }}>Go Home</Link></div>
+  if (!post) return <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 16 }}><Helmet><meta name="robots" content="noindex,nofollow" /><title>404 - Not Found | Rot Report</title></Helmet><h1 style={{ fontSize: 48, fontWeight: 800 }}>404</h1><p>Page not found</p><Link to="/" style={{ textDecoration: 'none', fontWeight: 600 }}>Go Home</Link></div>
 
   const url = `https://rot.csskey.com/blog/${post.slug}`
   const related = blogPosts.filter(p => p.slug !== post.slug).slice(0, 3)
@@ -42,7 +42,7 @@ export default function BlogPost() {
 
       <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
         <span className="chip chip-green">{post.category}</span>
-        <span className="mono" style={{ fontSize: 10, color: 'var(--text-faint)', alignSelf: 'center' }}>{post.date} · BY {post.author.toUpperCase()}</span>
+        <span className="mono" style={{ fontSize: 10, color: 'var(--text-faint)', alignSelf: 'center' }}>{post.date} 路 BY {post.author.toUpperCase()}</span>
       </div>
 
       <h1 className="mono" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.75rem)', fontWeight: 700, lineHeight: 1.2, marginBottom: 16, color: 'var(--text)' }}>{post.title}</h1>

@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async"
+﻿import { Helmet } from "react-helmet-async"
 import { useParams, Link } from "react-router-dom"
 import { brainrotTerms } from "../data/brainrotTerms"
 import Ad from "../components/Ad"
@@ -21,7 +21,7 @@ const TIER_CHIP: Record<number, string> = {
 export default function TermDetailPage() {
   const { slug } = useParams<{ slug: string }>()
   const term = brainrotTerms.find(t => t.slug === slug)
-  if (!term) return <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 16 }}><Helmet><meta name="robots" content="noindex,nofollow" /></Helmet><h1 style={{ fontSize: 48, fontWeight: 800 }}>404</h1><p>Page not found</p><Link to="/" style={{ textDecoration: 'none', fontWeight: 600 }}>Go Home</Link></div>
+  if (!term) return <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 16 }}><Helmet><meta name="robots" content="noindex,nofollow" /><title>404 - Not Found | Rot Report</title></Helmet><h1 style={{ fontSize: 48, fontWeight: 800 }}>404</h1><p>Page not found</p><Link to="/" style={{ textDecoration: 'none', fontWeight: 600 }}>Go Home</Link></div>
 
   const url = `https://rot.csskey.com/terms/${term.slug}`
   const related = brainrotTerms
@@ -31,12 +31,12 @@ export default function TermDetailPage() {
   return (
     <div className="fade-in" style={{ maxWidth: 680, margin: "0 auto" }}>
       <Helmet>
-        <title>{`${term.term} — Brainrot Term Definition | Rot Report`}</title>
+        <title>{`${term.term} 鈥?Brainrot Term Definition | Rot Report`}</title>
         <meta
           name="description"
           content={`${term.term}: ${term.definition} Tier ${term.tier} (${TIER_LABELS[term.tier]}). Example: ${term.example}. Satire only.`}
         />
-        <meta property="og:title" content={`${term.term} — Brainrot Term Definition`} />
+        <meta property="og:title" content={`${term.term} 鈥?Brainrot Term Definition`} />
         <meta property="og:description" content={term.definition} />
         <meta property="og:url" content={url} />
         <meta property="og:type" content="article" />
@@ -52,7 +52,7 @@ export default function TermDetailPage() {
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": `${term.term} — Brainrot Term`,
+          "headline": `${term.term} 鈥?Brainrot Term`,
           "description": term.definition,
           "url": url,
           "author": { "@type": "Person", "name": "Dev Patel" },
@@ -73,7 +73,7 @@ export default function TermDetailPage() {
           <span className={`chip ${TIER_CHIP[term.tier]}`} style={{ flexShrink: 0 }}>T{term.tier}</span>
         </div>
         <div className="mono" style={{ fontSize: 11, color: "var(--text-faint)", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-          {`TIER ${term.tier} — ${TIER_LABELS[term.tier]}`}
+          {`TIER ${term.tier} 鈥?${TIER_LABELS[term.tier]}`}
         </div>
       </div>
 
@@ -120,7 +120,7 @@ export default function TermDetailPage() {
       <Ad />
 
       <div style={{ marginBottom: 32 }}>
-        <ShareButtons url={url} title={`${term.term} — Brainrot Term (Tier ${term.tier})`} />
+        <ShareButtons url={url} title={`${term.term} 鈥?Brainrot Term (Tier ${term.tier})`} />
       </div>
 
       {/* Related terms */}

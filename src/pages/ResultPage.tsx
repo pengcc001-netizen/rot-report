@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useParams, Link } from 'react-router-dom'
 import { quizQuestions } from '../data/questions'
@@ -27,7 +27,7 @@ export default function ResultPage() {
   if (!slug) {
     return (
       <div style={{ textAlign: 'center', padding: '60px 0' }}>
-        <Helmet><meta name="robots" content="noindex,nofollow" /></Helmet>
+        <Helmet><meta name="robots" content="noindex,nofollow" /><title>404 - Not Found | Rot Report</title></Helmet>
         <p className="mono" style={{ color: 'var(--text-soft)' }}>{'> INVALID ASSESSMENT CODE'}</p>
         <Link to="/" className="btn btn-terminal" style={{ marginTop: 16 }}>TAKE ASSESSMENT</Link>
       </div>
@@ -40,12 +40,12 @@ export default function ResultPage() {
   return (
     <div className="fade-in">
       <Helmet>
-        <title>Rot Score: {subtype.rotScore} — {subtype.name} | Rot Report</title>
+        <title>Rot Score: {subtype.rotScore} 鈥?{subtype.name} | Rot Report</title>
         <meta name="robots" content="noindex,nofollow" />
       </Helmet>
 
       <div className="terminal-card" style={{ padding: '28px 24px', marginBottom: 24 }}>
-        <div className="terminal-label" style={{ marginBottom: 4 }}>{'> ROT REPORT — SHARED RESULT'}</div>
+        <div className="terminal-label" style={{ marginBottom: 4 }}>{'> ROT REPORT 鈥?SHARED RESULT'}</div>
         <hr style={{ border: 'none', borderTop: '1px dashed var(--border)', margin: '12px 0 20px' }} />
 
         <div style={{ textAlign: 'center', marginBottom: 24 }}>
@@ -61,12 +61,12 @@ export default function ResultPage() {
         </div>
 
         <div className="mono" style={{ fontSize: 10, color: 'var(--text-faint)', textAlign: 'center' }}>
-          [!] SATIRE — NOT A MEDICAL DIAGNOSIS
+          [!] SATIRE 鈥?NOT A MEDICAL DIAGNOSIS
         </div>
       </div>
 
       <div style={{ textAlign: 'center', marginBottom: 24 }}>
-        <ShareButtons url={shareUrl} title={`My Rot Score is ${subtype.rotScore} — I am ${subtype.name} (${subtype.fakeICD})`} />
+        <ShareButtons url={shareUrl} title={`My Rot Score is ${subtype.rotScore} 鈥?I am ${subtype.name} (${subtype.fakeICD})`} />
       </div>
 
       <Ad />

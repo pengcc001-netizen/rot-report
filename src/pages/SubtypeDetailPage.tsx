@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+﻿import { Helmet } from 'react-helmet-async'
 import { useParams, Link } from 'react-router-dom'
 import { rotSubtypes } from '../data/rotSubtypes'
 import Ad from '../components/Ad'
@@ -7,7 +7,7 @@ import ShareButtons from '../components/ShareButtons'
 export default function SubtypeDetailPage() {
   const { slug } = useParams<{ slug: string }>()
   const subtype = rotSubtypes.find(s => s.slug === slug)
-  if (!subtype) return <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 16 }}><Helmet><meta name="robots" content="noindex,nofollow" /></Helmet><h1 style={{ fontSize: 48, fontWeight: 800 }}>404</h1><p>Page not found</p><Link to="/" style={{ textDecoration: 'none', fontWeight: 600 }}>Go Home</Link></div>
+  if (!subtype) return <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 16 }}><Helmet><meta name="robots" content="noindex,nofollow" /><title>404 - Not Found | Rot Report</title></Helmet><h1 style={{ fontSize: 48, fontWeight: 800 }}>404</h1><p>Page not found</p><Link to="/" style={{ textDecoration: 'none', fontWeight: 600 }}>Go Home</Link></div>
 
   const url = `https://rot.csskey.com/subtypes/${subtype.slug}`
 
@@ -15,7 +15,7 @@ export default function SubtypeDetailPage() {
     <div className="fade-in" style={{ maxWidth: 680, margin: '0 auto' }}>
       <Helmet>
         <title>{subtype.name} ({subtype.fakeICD}) - Rot Report</title>
-        <meta name="description" content={`${subtype.name}: ${subtype.tagline} Fake ICD: ${subtype.fakeICD}. Satire only — NOT a real medical diagnosis.`} />
+        <meta name="description" content={`${subtype.name}: ${subtype.tagline} Fake ICD: ${subtype.fakeICD}. Satire only 鈥?NOT a real medical diagnosis.`} />
         <meta property="og:title" content={`${subtype.name} (${subtype.fakeICD})`} />
         <meta property="og:description" content={subtype.tagline} />
         <meta property="og:url" content={url} />
@@ -32,7 +32,7 @@ export default function SubtypeDetailPage() {
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": `${subtype.name} — Satirical Subtype`,
+          "headline": `${subtype.name} 鈥?Satirical Subtype`,
           "description": subtype.tagline,
           "url": url,
           "author": { "@type": "Person", "name": "Dev Patel" },
@@ -102,7 +102,7 @@ export default function SubtypeDetailPage() {
       <Ad />
 
       <div style={{ marginBottom: 32 }}>
-        <ShareButtons url={url} title={`${subtype.name} (${subtype.fakeICD}) — Rot Score: ${subtype.rotScore}`} />
+        <ShareButtons url={url} title={`${subtype.name} (${subtype.fakeICD}) 鈥?Rot Score: ${subtype.rotScore}`} />
       </div>
 
       <div style={{ textAlign: 'center' }}>
