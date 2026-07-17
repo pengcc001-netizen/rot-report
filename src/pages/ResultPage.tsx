@@ -40,8 +40,15 @@ export default function ResultPage() {
   return (
     <div className="fade-in">
       <Helmet>
-        <title>Rot Score: {subtype.rotScore} 鈥?{subtype.name} | Rot Report</title>
+        <title>Rot Score: {subtype.rotScore} ?{subtype.name} | Rot Report</title>
         <meta name="robots" content="noindex,nofollow" />
+        <meta property="og:title" content={`My Rot Score is ${subtype.rotScore} — ${subtype.name}`} />
+        <meta property="og:description" content={subtype.description} />
+        <meta property="og:url" content={shareUrl} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`My Rot Score: ${subtype.rotScore}`} />
+        <meta name="twitter:description" content={subtype.description} />
       </Helmet>
 
       <div className="terminal-card" style={{ padding: '28px 24px', marginBottom: 24 }}>
