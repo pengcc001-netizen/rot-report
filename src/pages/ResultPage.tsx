@@ -12,7 +12,9 @@ export default function ResultPage() {
 
   useEffect(() => {
     try {
-      const decoded = atob(code || '')
+      const std = (code || '').replace(/-/g, '+').replace(/_/g, '/')
+      const padded = std + '='.repeat((4 - std.length % 4) % 4)
+      const decoded = atob(padded)
       const slugs = decoded.split(',')
       if (slugs.length === quizQuestions.length) {
         const counts: Record<string, number> = {}

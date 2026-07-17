@@ -23,7 +23,7 @@ export default function Home() {
     } else {
       const counts: Record<string, number> = {}
       newAnswers.forEach(s => { counts[s] = (counts[s] || 0) + 1 })
-      const encoded = btoa(newAnswers.join(','))
+      const encoded = btoa(newAnswers.join(',')).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
       window.history.replaceState(null, '', `/r/${encoded}`)
       setPhase('result')
     }

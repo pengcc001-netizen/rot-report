@@ -125,6 +125,7 @@ export default function StaticPage({ page }: { page: string }) {
     )
 
   let isFirst = true
+  const routePath = page === 'terms' ? 'legal-terms' : page
 
   return (
     <div className="fade-in" style={{ maxWidth: 680, margin: '0 auto' }}>
@@ -133,10 +134,10 @@ export default function StaticPage({ page }: { page: string }) {
         <meta name="description" content={`Rot Report ${info.title.toLowerCase()} page.`} />
         <meta property="og:title" content={`${info.title} - Rot Report`} />
         <meta property="og:description" content={`Rot Report ${info.title.toLowerCase()} page.`} />
-        <meta property="og:url" content={`https://rot.csskey.com/${page}`} />
+        <meta property="og:url" content={`https://rot.csskey.com/${routePath}`} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebPage', name: `${info.title} - Rot Report`, description: `Rot Report ${info.title.toLowerCase()} page.`, url: `https://rot.csskey.com/${page}` }) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebPage', name: `${info.title} - Rot Report`, description: `Rot Report ${info.title.toLowerCase()} page.`, url: `https://rot.csskey.com/${routePath}` }) }} />
       </Helmet>
 
       <article>
