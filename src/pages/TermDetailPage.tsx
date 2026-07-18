@@ -1,4 +1,4 @@
-﻿import { Helmet } from "react-helmet-async"
+import { Helmet } from "react-helmet-async"
 import { useParams, Link } from "react-router-dom"
 import { brainrotTerms } from "../data/brainrotTerms"
 import Ad from "../components/Ad"
@@ -31,12 +31,12 @@ export default function TermDetailPage() {
   return (
     <div className="fade-in" style={{ maxWidth: 680, margin: "0 auto" }}>
       <Helmet>
-        <title>{`${term.term} 鈥?Brainrot Term Definition | Rot Report`}</title>
+        <title>{`${term.term} —Brainrot Term Definition | Rot Report`}</title>
         <meta
           name="description"
           content={`${term.term}: ${term.definition} Tier ${term.tier} (${TIER_LABELS[term.tier]}). Example: ${term.example}. Satire only.`}
         />
-        <meta property="og:title" content={`${term.term} 鈥?Brainrot Term Definition`} />
+        <meta property="og:title" content={`${term.term} —Brainrot Term Definition`} />
         <meta property="og:description" content={term.definition} />
         <meta property="og:url" content={url} />
         <meta property="og:type" content="article" />
@@ -52,7 +52,7 @@ export default function TermDetailPage() {
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": `${term.term} 鈥?Brainrot Term`,
+          "headline": `${term.term} —Brainrot Term`,
           "description": term.definition,
           "url": url,
           "author": { "@type": "Person", "name": "Dev Patel" },
@@ -73,7 +73,7 @@ export default function TermDetailPage() {
           <span className={`chip ${TIER_CHIP[term.tier]}`} style={{ flexShrink: 0 }}>T{term.tier}</span>
         </div>
         <div className="mono" style={{ fontSize: 11, color: "var(--text-faint)", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-          {`TIER ${term.tier} 鈥?${TIER_LABELS[term.tier]}`}
+          {`TIER ${term.tier} —${TIER_LABELS[term.tier]}`}
         </div>
       </div>
 
@@ -120,7 +120,7 @@ export default function TermDetailPage() {
       <Ad />
 
       <div style={{ marginBottom: 32 }}>
-        <ShareButtons url={url} title={`${term.term} 鈥?Brainrot Term (Tier ${term.tier})`} />
+        <ShareButtons url={url} title={`${term.term} —Brainrot Term (Tier ${term.tier})`} />
       </div>
 
       {/* Related terms */}

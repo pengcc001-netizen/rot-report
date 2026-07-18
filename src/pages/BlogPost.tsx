@@ -1,4 +1,4 @@
-﻿import { Helmet } from 'react-helmet-async'
+import { Helmet } from 'react-helmet-async'
 import { useParams, Link } from 'react-router-dom'
 import { blogPosts } from '../data/blog'
 import ShareButtons from '../components/ShareButtons'
@@ -51,7 +51,7 @@ export default function BlogPost() {
 
       <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
         <span className="chip chip-green">{post.category}</span>
-        <span className="mono" style={{ fontSize: 10, color: 'var(--text-faint)', alignSelf: 'center' }}>{post.date} 路 BY {post.author.toUpperCase()}</span>
+        <span className="mono" style={{ fontSize: 10, color: 'var(--text-faint)', alignSelf: 'center' }}>{post.date} · BY {post.author.toUpperCase()}</span>
       </div>
 
       <h1 className="mono" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.75rem)', fontWeight: 700, lineHeight: 1.2, marginBottom: 16, color: 'var(--text)' }}>{post.title}</h1>

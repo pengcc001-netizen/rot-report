@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useParams, Link } from 'react-router-dom'
 import { quizQuestions } from '../data/questions'
@@ -52,7 +52,7 @@ export default function ResultPage() {
       </Helmet>
 
       <div className="terminal-card" style={{ padding: '28px 24px', marginBottom: 24 }}>
-        <div className="terminal-label" style={{ marginBottom: 4 }}>{'> ROT REPORT 鈥?SHARED RESULT'}</div>
+        <div className="terminal-label" style={{ marginBottom: 4 }}>{'> ROT REPORT —SHARED RESULT'}</div>
         <hr style={{ border: 'none', borderTop: '1px dashed var(--border)', margin: '12px 0 20px' }} />
 
         <div style={{ textAlign: 'center', marginBottom: 24 }}>
@@ -68,12 +68,12 @@ export default function ResultPage() {
         </div>
 
         <div className="mono" style={{ fontSize: 10, color: 'var(--text-faint)', textAlign: 'center' }}>
-          [!] SATIRE 鈥?NOT A MEDICAL DIAGNOSIS
+          [!] SATIRE —NOT A MEDICAL DIAGNOSIS
         </div>
       </div>
 
       <div style={{ textAlign: 'center', marginBottom: 24 }}>
-        <ShareButtons url={shareUrl} title={`My Rot Score is ${subtype.rotScore} 鈥?I am ${subtype.name} (${subtype.fakeICD})`} />
+        <ShareButtons url={shareUrl} title={`My Rot Score is ${subtype.rotScore} —I am ${subtype.name} (${subtype.fakeICD})`} />
       </div>
 
       <Ad />
