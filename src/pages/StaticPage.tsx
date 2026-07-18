@@ -126,18 +126,19 @@ export default function StaticPage({ page }: { page: string }) {
 
   let isFirst = true
   const routePath = page === 'terms' ? 'legal-terms' : page
+  const pageDescription = info.content.substring(0, 155).replace(/\n/g, ' ').replace(/[#*]/g, '').trim()
 
   return (
     <div className="fade-in" style={{ maxWidth: 680, margin: '0 auto' }}>
       <Helmet>
         <title>{info.title} - Rot Report</title>
-        <meta name="description" content={`Rot Report ${info.title.toLowerCase()} page.`} />
+        <meta name="description" content={pageDescription} />
         <meta property="og:title" content={`${info.title} - Rot Report`} />
-        <meta property="og:description" content={`Rot Report ${info.title.toLowerCase()} page.`} />
+        <meta property="og:description" content={pageDescription} />
         <meta property="og:url" content={`https://rot.csskey.com/${routePath}`} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebPage', name: `${info.title} - Rot Report`, description: `Rot Report ${info.title.toLowerCase()} page.`, url: `https://rot.csskey.com/${routePath}` }) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebPage', name: `${info.title} - Rot Report`, description: pageDescription, url: `https://rot.csskey.com/${routePath}` }) }} />
       </Helmet>
 
       <article>
