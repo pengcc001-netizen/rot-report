@@ -40,7 +40,7 @@ export default function ResultPage() {
   return (
     <div className="fade-in">
       <Helmet>
-        <title>Rot Score: {subtype.rotScore} ?{subtype.name} | Rot Report</title>
+        <title>Rot Score: {subtype.rotScore} — {subtype.name} | Rot Report</title>
         <meta name="robots" content="noindex,nofollow" />
         <meta property="og:title" content={`My Rot Score is ${subtype.rotScore} — ${subtype.name}`} />
         <meta property="og:description" content={subtype.description} />
