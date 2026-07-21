@@ -1,0 +1,27 @@
+# Rot Report
+
+> Daily rot and decay content for entertainment, humor, and morbid curiosity.
+
+## Main Pages
+- [Home](https://rot.csskey.com/)
+- [About](https://rot.csskey.com/about)
+- [Privacy Policy](https://rot.csskey.com/privacy)
+- [Terms of Service](https://rot.csskey.com/terms)
+- [Contact](https://rot.csskey.com/contact)
+
+## Features
+- Daily rot content
+- Decay tracker
+- Humor content
+- Morbid facts
+- Entertainment
+
+## Topics
+- rot
+- decay
+- humor
+- entertainment
+- daily content
+
+## Sitemap
+https://rot.csskey.com/sitemap.xml
