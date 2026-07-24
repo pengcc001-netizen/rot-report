@@ -119,7 +119,9 @@ export default function Home() {
             <span className="mono crt-green" style={{ fontSize: 11 }}>{Math.round(progress)}%</span>
           </div>
           <div style={{ height: 2, background: 'var(--bg-terminal)', border: '1px solid var(--border)' }}>
-            </div>
+            <div style={{ height: '100%', width: `${progress}%`, background: 'var(--green)', boxShadow: '0 0 8px rgba(0,255,136,0.3)', transition: 'width 0.3s ease' }} />
+          </div>
+        </div>
         <h2 className="mono" style={{ fontSize: 'clamp(1.125rem, 3vw, 1.375rem)', fontWeight: 700, lineHeight: 1.4, marginBottom: 24, color: 'var(--text)' }}>
           {q.question}
         </h2>
