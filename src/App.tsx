@@ -104,40 +104,6 @@ function Layout({ children }: { children: React.ReactNode }) {
               <Link to="/contact" style={{ color: 'var(--text-soft)', textDecoration: 'none', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Contact</Link>
             </div>
           </div>
-          <div style={{ marginTop: 24, paddingTop: 16, borderTop: '1px solid var(--border)' }}>
-            <div className="mono" style={{ fontWeight: 600, fontSize: 11, marginBottom: 8, letterSpacing: '0.05em' }}>NETWORK SITES</div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 12px' }}>
-              {[
-                { name: 'CSS Reference', url: 'https://csskey.com', desc: 'Complete CSS property, selector & function reference' },
-                { name: 'AI Tools', url: 'https://ai.csskey.com', desc: '40+ free AI-powered online tools' },
-                { name: 'Free Online Tools', url: 'https://tools.aiprh.com', desc: '160+ free utility tools and calculators' },
-                { name: 'JS Reference', url: 'https://js.csskey.com', desc: 'JavaScript API reference with examples' },
-                { name: 'Python Reference', url: 'https://python.csskey.com', desc: 'Python standard library reference' },
-                { name: 'HTML Reference', url: 'https://html.csskey.com', desc: 'HTML element and attribute reference' },
-                { name: 'SQL Reference', url: 'https://sql.csskey.com', desc: 'SQL syntax reference for multiple databases' },
-                { name: 'Linux Reference', url: 'https://linux.csskey.com', desc: 'Linux command reference and examples' },
-                { name: 'Emoji Kitchen', url: 'https://emoji.csskey.com', desc: 'Mix and create custom emoji combinations' },
-                { name: 'Font Fusion', url: 'https://font.csskey.com', desc: 'Google Fonts preview and pairing tool' },
-                { name: 'Prompt Vault', url: 'https://prompt.csskey.com', desc: 'Curated AI prompt library' },
-                { name: 'Quiz Hub', url: 'https://quiz.csskey.com', desc: 'Interactive quizzes on programming topics' },
-                { name: 'Curious Lens', url: 'https://curious.csskey.com', desc: 'Daily curious facts and trivia' },
-                { name: 'Would You Rather', url: 'https://wyr.csskey.com', desc: 'Fun would-you-rather questions game' },
-                { name: 'Spark Site', url: 'https://spark.csskey.com', desc: 'Creative writing prompts and ideas' },
-                { name: 'Vibes', url: 'https://vibes.csskey.com', desc: 'Mood and aesthetic content generator' },
-                { name: 'Words', url: 'https://words.csskey.com', desc: 'Word tools and language games' },
-                { name: 'Brand', url: 'https://brand.csskey.com', desc: 'Brand name and logo idea generator' },
-                { name: 'Calckit', url: 'https://calc.csskey.com', desc: 'Collection of free online calculators' },
-                { name: 'Mix', url: 'https://mix.csskey.com', desc: 'Content mixing and blending tools' },
-                { name: 'Aura Score', url: 'https://aura.csskey.com', desc: 'Personal energy and aura reading' },
-                { name: 'Squad Audit', url: 'https://squad.csskey.com', desc: 'Team and squad analysis tools' },
-                { name: 'Your Lore', url: 'https://lore.csskey.com', desc: 'Personal story and lore generator' },
-                { name: 'Draw Perfect', url: 'https://draw.csskey.com', desc: 'Drawing and sketching tools' },
-                { name: 'Personality Receipt', url: 'https://receipt.csskey.com', desc: 'Personality test and receipt generator' },
-              ].map(s => (
-                <a key={s.url} href={s.url} target="_blank" rel="noopener noreferrer" title={s.desc} style={{ color: 'var(--text-soft)', textDecoration: 'none', fontSize: 11, fontFamily: 'var(--font-mono)' }}>{s.name}</a>
-              ))}
-            </div>
-          </div>
           <div style={{ borderTop: '1px dashed var(--border)', paddingTop: 16, textAlign: 'center' }}>
             <p className="mono" style={{ color: 'var(--text-faint)', fontSize: 10, letterSpacing: '0.05em' }}>
               ROT REPORT · 2026 · SATIRE / ENTERTAINMENT ONLY · NOT A MEDICAL DIAGNOSIS
